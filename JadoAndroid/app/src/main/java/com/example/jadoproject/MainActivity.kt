@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
 
-
         bottomnavi()
 
     }
@@ -54,7 +53,6 @@ class MainActivity : AppCompatActivity() {
     private fun changeFragment(fragment: Fragment) {
         val manager: FragmentManager = supportFragmentManager
         val ft: FragmentTransaction = manager.beginTransaction()
-
-        ft.replace(R.id.fragmentContainerView2, fragment)
+        ft.replace(R.id.fragmentContainerView2, fragment).commit()
     }
 }
