@@ -21,7 +21,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:selectedColor="#9cc2ff"
+            app:selectedColor="#eac9ff"
             app:selectedTab="0"
             app:strokeRadius="8dp"
             app:strokeWidth="2dp"
