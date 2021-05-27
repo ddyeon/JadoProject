@@ -1,17 +1,29 @@
 package com.example.jadoproject
 
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothDevice
+import android.bluetooth.BluetoothManager
+import android.bluetooth.BluetoothSocket
+import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
+import android.os.AsyncTask
+import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.jadoproject.databinding.ActivityMainBinding
-import java.io.*
-import java.lang.Exception
-import java.net.Socket
+import java.io.IOException
+import java.io.InputStream
+import java.io.OutputStream
+import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,102 +33,254 @@ class MainActivity : AppCompatActivity() {
     private val groupFragment = GroupFragment()
     private val mypageFragment = MypageFragment()
 
-    private val html = ""
-    private var mHandler: Handler? = null
 
-    private var socket: Socket? = null
+    private val REQUEST_BLOOTH_ENABLE = 100
+    private var mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
+    private var mConnectedDeviceName: String? = null
+    var isConnectionError = false
+    var mConnectedTask: ConnectedTask? = null
 
-    private val networkReader: BufferedReader? = null
-    private val networkWriter: PrintWriter? = null
-
-    private var dos: DataOutputStream? = null
-    private var dis: DataInputStream? = null
-
-    private val ip = "192.168.0.20" // IP 번호
-
-    private val port = 9999 // port 번호
-
-
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-       /* binding.include.connectionBtn.setOnClickListener {
-            connectionSocket()
-        }*/
 
 
         bottomnavi()
 
     }
 
-    private fun connectionSocket()
+
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
+    fun connectionBluetooth()
     {
-        mHandler = Handler()
-        Log.d("connect", "연결하는중")
+        //bluetooth adapter
+        val bleManager : BluetoothManager = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
+        mBluetoothAdapter = bleManager.adapter
+        if(mBluetoothAdapter == null)
+        {
+            Log.d("bluetooth", "This device is not implement Bluetooth")
+            return
+        }
+        if(!mBluetoothAdapter.isEnabled)
+        {
+            val ble_enable_intent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+            startActivityForResult(ble_enable_intent, REQUEST_BLOOTH_ENABLE)
+        }
+        else
+            run {
+                Log.d("bluetooth", "Initialisaton successful")
+                showPairedDevicesListDialog()
+            }
 
-        val checkUpdate : Thread = object : Thread() {
-            override fun run() {
-                super.run()
-                //ip받기
 
+    }
+
+    private fun showPairedDevicesListDialog()
+    {
+        val devices : Set<BluetoothDevice> = mBluetoothAdapter.bondedDevices
+        val pairedDevices = devices.toTypedArray()
+
+        if(pairedDevices.isEmpty()) {
+            Log.d("pairing", "No devices have been paired.\n you must pair it with another device.")
+            return
+        }
+
+        val items : Array<String> = arrayOf()
+        for (i in pairedDevices.indices) {
+            items[i] = pairedDevices[i].name
+        }
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Select device")
+        builder.setCancelable(false)
+        builder.setItems(items, object : DialogInterface.OnClickListener{
+            override fun onClick(dialog: DialogInterface?, which: Int) {
+               dialog?.dismiss()
+
+                //val task = ConnectTask(pairedDevices[which])
+            }
+
+        })
+
+
+    }
+
+    inner class ConnectTask internal constructor(bluetoothDevice: BluetoothDevice) :
+        AsyncTask<Void?, Void?, Boolean>() {
+        private var mBluetoothSocket: BluetoothSocket? = null
+        private var mBluetoothDevice: BluetoothDevice? = null
+
+        override fun doInBackground(vararg params: Void?): Boolean {
+            // Always cancel discovery because it will slow down a connection
+            mBluetoothAdapter.cancelDiscovery()
+            // Make a connection to the BluetoothSocket
+            try {
+                // This is a blocking call and will only return on a
+                // successful connection or an exception
+                mBluetoothSocket!!.connect()
+            } catch (e: IOException) {
+                // Close the socket
                 try {
-                    socket = Socket(ip,port)
-                    Log.d("서버 접속 완료", "서버 접속됨")
-
+                    mBluetoothSocket!!.close()
+                } catch (e2: IOException) {
+                    Log.e(
+                        "bluetooth", "unable to close() " +
+                                " socket during connection failure", e2
+                    )
                 }
-                catch (e1 : IOException) {
-                    Log.w("서버접속못함", "서버접속못함")
-                    e1.printStackTrace();
-                }
+                return false
+            }
+            return true
+        }
 
-                Log.w("edit 넘어가야 할 값 : ","안드로이드에서 서버로 연결요청")
+        override fun onPostExecute(isSucess: Boolean) {
+            if (isSucess) {
+                connected(mBluetoothSocket)
+            } else {
+                isConnectionError = true
+                Log.d("connect:", "Unable to connect device")
 
+            }
+        }
 
-                try {
-                    dos = DataOutputStream(socket?.getOutputStream())
-                    dis  = DataInputStream(socket?.getInputStream())
+        init {
+            mBluetoothDevice = bluetoothDevice
+            mConnectedDeviceName = bluetoothDevice.name
 
-                    dos!!.writeUTF("안드로이드에서 서버로 연결요청")
-                }catch (e1 : IOException) {
-                    e1.printStackTrace();
-                    Log.w("버퍼", "버퍼생성 잘못됨")
-                }
-                Log.w("버퍼","버퍼생성 잘됨")
-
-                while (true)
-                {
-                    try {
-                        var line = ""
-                        var line2 = 0
-
-                        while (true)
-                        {
-                            line2 = dis?.read()!!
-
-                            if(line2 > 0)
-                            {
-                                Log.w("------서버에서 받아온 값 ", "" + line2);
-                                dos?.writeUTF("하나 받았습니다. : " + line2);
-                                dos?.flush();
-                            }
-                            if(line2 == 99) {
-                                Log.w("------서버에서 받아온 값 ", "" + line2);
-                                socket?.close();
-                                break;
-                            }
-                        }
-                    } catch (e : Exception) {
-
-                    }
-
-                }
+            //SPP
+            val uuid: UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb")
+            try {
+                mBluetoothSocket = mBluetoothDevice!!.createRfcommSocketToServiceRecord(uuid)
+                Log.d("uuid", "create socket for $mConnectedDeviceName")
+            } catch (e: IOException) {
+                Log.e("uuid", "socket create failed " + e.message)
             }
 
         }
-        checkUpdate.start()
+
+
     }
+
+    fun connected(socket: BluetoothSocket?) {
+        //mConnectedTask = ConnectedTask(socket)
+        mConnectedTask!!.execute()
+    }
+
+    inner class ConnectedTask : AsyncTask<Void, String, Boolean>() {
+
+        private var mInputStream: InputStream? = null
+        private var mOutputStream: OutputStream? = null
+        private var mBluetoothSocket: BluetoothSocket? = null
+
+        fun ConnectedTask(socket: BluetoothSocket) {
+            mBluetoothSocket = socket
+            try {
+                mInputStream = mBluetoothSocket!!.inputStream
+                mOutputStream = mBluetoothSocket!!.outputStream
+            } catch (e: IOException) {
+                Log.e("socket", "socket not created", e)
+            }
+            Log.d("socket", "connected to $mConnectedDeviceName")
+
+        }
+
+        override fun doInBackground(vararg params: Void?): Boolean {
+            val readBuffer = ByteArray(1024)
+            var readBufferPosition = 0
+            while (true)
+            {
+                if(isCancelled)
+                    return false
+                try{
+                    val bytesAvailable = mInputStream!!.available()
+                    if (bytesAvailable > 0) {
+                        val packetBytes = ByteArray(bytesAvailable)
+                        mInputStream!!.read(packetBytes)
+                        for (i in 0 until bytesAvailable) {
+                            val b = packetBytes[i]
+                            if (b == '\n'.toByte()) {
+                                val encodedBytes = ByteArray(readBufferPosition)
+                                System.arraycopy(
+                                    readBuffer, 0, encodedBytes, 0,
+                                    encodedBytes.size
+                                )
+                                /*val recvMessage = String(encodedBytes, "UTF-8")
+                                readBufferPosition = 0
+                                Log.d("message", "recv message: $recvMessage")
+                                publishProgress(recvMessage)*/
+                            } else {
+                                readBuffer[readBufferPosition++] = b
+                            }
+                        }
+                    }
+
+                }
+                catch (e : IOException)
+                {
+                    Log.e("disconnect", "disconnected", e);
+                    return false;
+                }
+            }
+        }
+
+
+        override fun onPostExecute(isSucess: Boolean?) {
+            super.onPostExecute(isSucess)
+            if (!isSucess!!) {
+                closeSocket()
+                Log.d("loat", "Device connection was lost")
+                isConnectionError = true
+            }
+        }
+
+        override fun onCancelled(aBoolean: Boolean?) {
+            super.onCancelled(aBoolean)
+            closeSocket()
+        }
+
+        fun closeSocket() {
+            try {
+                mBluetoothSocket!!.close()
+                Log.d("close socket", "close socket()")
+            } catch (e2: IOException) {
+                Log.e(
+                    "not close", "unable to close() " +
+                            " socket during connection failure", e2
+                )
+            }
+        }
+
+        fun write(msg: String) {
+            var msg = msg
+            msg += "\n"
+            try {
+                mOutputStream!!.write(msg.toByteArray())
+                mOutputStream!!.flush()
+            } catch (e: IOException) {
+                Log.e("send error", "Exception during send", e)
+            }
+
+        }
+
+
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == REQUEST_BLOOTH_ENABLE)
+        {
+            if(resultCode == RESULT_OK)
+                showPairedDevicesListDialog()
+            if(resultCode == RESULT_CANCELED)
+                Log.d("fail", "you need to enable bluetooth")
+        }
+    }
+
+
+
 
 
 
@@ -149,4 +313,8 @@ class MainActivity : AppCompatActivity() {
         val ft: FragmentTransaction = manager.beginTransaction()
         ft.replace(R.id.fragmentContainerView2, fragment).commit()
     }
-}
+
+
+
+
+    }
