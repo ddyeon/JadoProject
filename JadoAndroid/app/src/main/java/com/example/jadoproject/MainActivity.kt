@@ -1,5 +1,7 @@
 package com.example.jadoproject
 
+import android.Manifest
+import android.annotation.SuppressLint
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
@@ -7,13 +9,18 @@ import android.bluetooth.BluetoothSocket
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
+import android.provider.SyncStateContract
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -23,6 +30,7 @@ import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
@@ -46,11 +54,18 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        binding.include.connectionBtn.setOnClickListener {
+            connectionBluetooth()
+        }
 
+        val androidId : String = UUID.randomUUID().toString()
+        Log.d("androidId", androidId)
 
         bottomnavi()
-
+//076847
     }
+
+
 
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
@@ -88,25 +103,28 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        val items : Array<String> = arrayOf()
+        val items : Array<String> = arrayOf("","","","","","","","","","","")
         for (i in pairedDevices.indices) {
+            //items.add(pairedDevices[i].name)
             items[i] = pairedDevices[i].name
+            Log.d("pairDevice", pairedDevices[i].name.toString())
+
         }
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Select device")
         builder.setCancelable(false)
-        builder.setItems(items, object : DialogInterface.OnClickListener{
-            override fun onClick(dialog: DialogInterface?, which: Int) {
-               dialog?.dismiss()
+        builder.setItems(items) { dialog, which ->
+            dialog?.dismiss()
 
-                //val task = ConnectTask(pairedDevices[which])
-            }
-
-        })
+            val task = ConnectTask(pairedDevices[which])
+            task.execute()
+        }
+        builder.show()
 
 
     }
 
+    @SuppressLint("StaticFieldLeak")
     inner class ConnectTask internal constructor(bluetoothDevice: BluetoothDevice) :
         AsyncTask<Void?, Void?, Boolean>() {
         private var mBluetoothSocket: BluetoothSocket? = null
@@ -150,7 +168,7 @@ class MainActivity : AppCompatActivity() {
             mConnectedDeviceName = bluetoothDevice.name
 
             //SPP
-            val uuid: UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb")
+            val uuid: UUID = UUID.fromString("00001801-0000-1000-8000-00805f9b34fb")
             try {
                 mBluetoothSocket = mBluetoothDevice!!.createRfcommSocketToServiceRecord(uuid)
                 Log.d("uuid", "create socket for $mConnectedDeviceName")

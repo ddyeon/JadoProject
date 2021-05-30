@@ -9,5 +9,31 @@
         android:id="@+id/baseFragment"
         android:name="com.example.jadoproject.BaseFragment"
         android:label="fragment_base"
-        tools:layout="@layout/fragment_base" />
+        tools:layout="@layout/fragment_base" >
+        <action
+            android:id="@+id/action_baseFragment_to_weeklyFragment"
+            app:destination="@id/weeklyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weeklyFragment"
+        android:name="com.example.jadoproject.WeeklyFragment"
+        android:label="fragment_weekly"
+        tools:layout="@layout/fragment_weekly" >
+        <action
+            android:id="@+id/action_weeklyFragment_to_dailyFragment"
+            app:destination="@id/dailyFragment" />
+        <action
+            android:id="@+id/action_weeklyFragment_to_weekFragment"
+            app:destination="@id/weekFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dailyFragment"
+        android:name="com.example.jadoproject.DailyFragment"
+        android:label="fragment_daily"
+        tools:layout="@layout/fragment_daily" />
+    <fragment
+        android:id="@+id/weekFragment"
+        android:name="com.example.jadoproject.WeekFragment"
+        android:label="fragment_week"
+        tools:layout="@layout/fragment_week" />
 </navigation>
