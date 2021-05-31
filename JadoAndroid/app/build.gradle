@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -9,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.jadoproject"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -56,5 +58,16 @@ dependencies {
 
     implementation 'lib.kingja.switchbutton:switchbutton:1.1.8'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+
+    //fragment navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //feature module support
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+
+    //jetpack compose integration
+    implementation "androidx.navigation:navigation-compose:1.0.0-alpha10"
+
 
 }

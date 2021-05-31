@@ -12,10 +12,19 @@
         tools:layout="@layout/fragment_base" >
         <action
             android:id="@+id/action_baseFragment_to_weeklyFragment"
-            app:destination="@id/weeklyFragment" />
+            app:destination="@id/week" />
+        <action
+            android:id="@+id/action_baseFragment_to_homeFragment"
+            app:destination="@id/home" />
+        <action
+            android:id="@+id/action_baseFragment_to_mypageFragment"
+            app:destination="@id/mypage" />
+        <action
+            android:id="@+id/action_baseFragment_to_groupFragment"
+            app:destination="@id/group" />
     </fragment>
     <fragment
-        android:id="@+id/weeklyFragment"
+        android:id="@+id/week"
         android:name="com.example.jadoproject.WeeklyFragment"
         android:label="fragment_weekly"
         tools:layout="@layout/fragment_weekly" >
@@ -36,4 +45,19 @@
         android:name="com.example.jadoproject.WeekFragment"
         android:label="fragment_week"
         tools:layout="@layout/fragment_week" />
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.jadoproject.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/mypage"
+        android:name="com.example.jadoproject.MypageFragment"
+        android:label="fragment_mypage"
+        tools:layout="@layout/fragment_mypage" />
+    <fragment
+        android:id="@+id/group"
+        android:name="com.example.jadoproject.GroupFragment"
+        android:label="fragment_group"
+        tools:layout="@layout/fragment_group" />
 </navigation>

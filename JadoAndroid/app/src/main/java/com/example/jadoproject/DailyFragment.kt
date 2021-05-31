@@ -53,7 +53,7 @@ class DailyFragment : Fragment() {
         binding.piechart.isDrawHoleEnabled = true
         binding.piechart.transparentCircleRadius = 12f
         binding.piechart.holeRadius = 12f
-        dataSet.setColors(Color.parseColor("eac9ff"))
+        dataSet.setColors(Color.parseColor("#eac9ff"))
         data.setValueTextSize(13f)
         data.setValueTextColor(Color.DKGRAY)
 

@@ -25,6 +25,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.fragment.NavHostFragment
 import com.example.jadoproject.databinding.ActivityMainBinding
 import java.io.IOException
 import java.io.InputStream
