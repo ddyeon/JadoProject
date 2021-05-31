@@ -25,9 +25,11 @@ class WeeklyFragment : Fragment() {
         binding.switchMultiButton.setOnSwitchListener { position, tabText ->
             when (position) {
                 0 -> {
-                    Navigation.findNavController(requireActivity(), R.id.weekContainer).navigate(R.id.action_weeklyFragment_to_dailyFragment)
+                    //Navigation.findNavController(requireActivity(), R.id.weekContainer).navigate(R.id.action_weeklyFragment_to_dailyFragment)
                 }
-                1-> Navigation.findNavController(requireActivity(), R.id.weekContainer).navigate(R.id.action_weeklyFragment_to_weekFragment)
+                1->  {
+                    
+                }//Navigation.findNavController(requireActivity(), R.id.weekContainer).navigate(R.id.action_weeklyFragment_to_weekFragment)
             }
         }
 
