@@ -2,6 +2,7 @@ package com.example.jadoproject
 
 import android.database.DatabaseUtils
 import android.graphics.Color
+import android.hardware.camera2.params.ColorSpaceTransform
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -48,12 +49,13 @@ class DailyFragment : Fragment() {
         data.setValueFormatter(PercentFormatter())
         binding.piechart.data = data
         val description : Description = Description()
-        description.text = "hello"
+        description.text = ""
         binding.piechart.description = description
         binding.piechart.isDrawHoleEnabled = true
         binding.piechart.transparentCircleRadius = 12f
         binding.piechart.holeRadius = 12f
-        dataSet.setColors(Color.parseColor("#eac9ff"))
+        //dataSet.setColors(Color.parseColor("#eac9ff"))
+        dataSet.setColors(ColorTemplate.VORDIPLOM_COLORS,200)
         data.setValueTextSize(13f)
         data.setValueTextColor(Color.DKGRAY)
 
