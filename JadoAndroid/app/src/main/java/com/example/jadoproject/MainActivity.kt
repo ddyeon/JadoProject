@@ -183,18 +183,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun connected(socket: BluetoothSocket?) {
-        //mConnectedTask = ConnectedTask(socket)
+        mConnectedTask = socket?.let { ConnectedTask(it) }
         mConnectedTask!!.execute()
     }
 
-    inner class ConnectedTask : AsyncTask<Void, String, Boolean>() {
+    inner class ConnectedTask(socket: BluetoothSocket) : AsyncTask<Void, String, Boolean>() {
 
         private var mInputStream: InputStream? = null
         private var mOutputStream: OutputStream? = null
-        private var mBluetoothSocket: BluetoothSocket? = null
+        private var mBluetoothSocket: BluetoothSocket? = socket
 
-        fun ConnectedTask(socket: BluetoothSocket) {
-            mBluetoothSocket = socket
+        init {
             try {
                 mInputStream = mBluetoothSocket!!.inputStream
                 mOutputStream = mBluetoothSocket!!.outputStream
@@ -202,7 +201,6 @@ class MainActivity : AppCompatActivity() {
                 Log.e("socket", "socket not created", e)
             }
             Log.d("socket", "connected to $mConnectedDeviceName")
-
         }
 
         override fun doInBackground(vararg params: Void?): Boolean {
