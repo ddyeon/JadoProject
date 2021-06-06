@@ -27,6 +27,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.NavHostFragment
 import com.example.jadoproject.databinding.ActivityMainBinding
+import com.google.firebase.FirebaseApp
 import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
@@ -54,6 +55,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+
 
         binding.include.connectionBtn.setOnClickListener {
             connectionBluetooth()
