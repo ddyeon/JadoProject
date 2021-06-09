@@ -12,7 +12,7 @@
   - 스스로 공부 시간을 체크하는 것보다 카메라를 통한 표정, 얼굴 인식을 통해 정확한 공부 시간 파악을 위해 기획하게 되었습니다.
 
 ---
-*2. Raspberrypi & Android*
+*2. Raspberrypi & Android with firebase*
 
 <img width="623" alt="firebaseRspAndorid" src="https://user-images.githubusercontent.com/53086454/120930297-a2911080-c727-11eb-8cc6-bfbe9d96e923.png">
 
