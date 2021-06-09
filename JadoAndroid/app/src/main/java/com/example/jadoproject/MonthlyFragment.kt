@@ -2,6 +2,7 @@ package com.example.jadoproject
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,14 +60,17 @@ class MonthlyFragment : Fragment() {
         myCalendar.set(Calendar.DAY_OF_MONTH, 17 )
 
 
+       // Log.d("time", System.currentTimeMillis().toString())
 
 
-        val event = Event(Color.RED, System.currentTimeMillis()+ 3600 * 1000, "Test")
+        val event = Event(Color.BLUE, System.currentTimeMillis(), "Test")
         binding.calanderView.addEvent(event)
 
 
 
     }
+
+
 
 
 }
