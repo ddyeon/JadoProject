@@ -1,19 +1,25 @@
 package com.example.jadoproject
 
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.jadoproject.databinding.FragmentMonthlyBinding
-import com.github.sundeepk.compactcalendarview.domain.Event
+import com.prolificinteractive.materialcalendarview.CalendarDay
+
+import com.prolificinteractive.materialcalendarview.CalendarMode
 import java.text.DateFormat
 import java.text.SimpleDateFormat
+import java.time.DayOfWeek
 
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MonthlyFragment : Fragment() {
@@ -43,29 +49,21 @@ class MonthlyFragment : Fragment() {
 
     }
 
+    val colorString : Array<String> = arrayOf("#eb346e")
     fun setDate()
     {
-        val c = Calendar.getInstance().time
-        val df = SimpleDateFormat("yyyy-mm-dd")
-        val formattedDate = df.format(c)
+        binding.calendarView.state().edit()
+            .isCacheCalendarPositionEnabled(false)
+            .setCalendarDisplayMode(CalendarMode.MONTHS).commit()
 
-        binding.calanderView.setUseThreeLetterAbbreviation(true)
+        binding.calendarView.isDynamicHeightEnabled = true
+       // binding.calendarView.setPadding(0,-20,0,30)
 
-        val sdf = SimpleDateFormat("MMMM yyyy")
-
-        val myCalendar = Calendar.getInstance()
-
-        myCalendar.set(Calendar.YEAR, 2021)
-        myCalendar.set(Calendar.MONTH, 6)
-        myCalendar.set(Calendar.DAY_OF_MONTH, 17 )
-
-
-       // Log.d("time", System.currentTimeMillis().toString())
-
-
-        val event = Event(Color.BLUE, System.currentTimeMillis(), "Test")
-        binding.calanderView.addEvent(event)
-
+        binding.calendarView.addDecorator(context?.let {
+            EventDecorators(
+                it, colorString,
+                CalendarDay.today())
+        })
 
 
     }
