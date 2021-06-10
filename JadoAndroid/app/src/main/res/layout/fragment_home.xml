@@ -38,7 +38,7 @@
                 <!--버튼-->
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                    android:layout_height="51dp"
                     android:orientation="horizontal"
                     android:layout_gravity="center">
 
