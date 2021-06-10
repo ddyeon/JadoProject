@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "819158040864",
+    "firebase_url": "https://jadoproject-530a4-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "jadoproject-530a4",
+    "storage_bucket": "jadoproject-530a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819158040864:android:38c230f946cf1014789745",
+        "android_client_info": {
+          "package_name": "com.example.jadoproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "819158040864-ei4amlucr7vir7edtatb0nqe42n5qoug.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jadoproject",
+            "certificate_hash": "4d60254b48b1044301b2484f623a958bc790d65d"
+          }
+        },
+        {
+          "client_id": "819158040864-amhadv6658c180vo9ivadhsrtdtqf42b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuoPkmq9ihJ70ps1cywQ3SVt32yNFhHb0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "819158040864-amhadv6658c180vo9ivadhsrtdtqf42b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
