@@ -4,200 +4,204 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".HomeFragment">
 
-    <!--전체-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content" />
 
-        <!--상단 부분-->
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/timer"
-            android:layout_width="378dp"
-            android:layout_height="250dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            android:orientation="horizontal">
+<!--    &lt;!&ndash;전체&ndash;&gt;-->
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
 
-            <!--왼쪽-->
-            <LinearLayout
-                android:layout_width="188dp"
-                android:layout_height="match_parent"
-                android:layout_marginTop="32dp"
-                android:orientation="vertical">
+<!--        &lt;!&ndash;상단 부분&ndash;&gt;-->
+<!--        <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--            android:id="@+id/timer"-->
+<!--            android:layout_width="378dp"-->
+<!--            android:layout_height="250dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            tools:ignore="MissingConstraints"-->
+<!--            android:orientation="horizontal">-->
 
-                <!--타이머-->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp"
-                    android:text="시계"
-                    android:layout_gravity="center"/>
-ㄴ
-                <!--버튼-->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="51dp"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center">
+<!--            &lt;!&ndash;왼쪽&ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="188dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginTop="32dp"-->
+<!--                android:orientation="vertical">-->
 
-                    <Button
-                        android:id="@+id/Start_Btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_weight="5"
-                        android:layout_marginTop="10dp"
-                        android:text="시작"
-                        android:backgroundTint="#d3abed"/>
+<!--                &lt;!&ndash;타이머&ndash;&gt;-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="150dp"-->
+<!--                    android:text="시계"-->
+<!--                    android:layout_gravity="center"/>-->
+<!--ㄴ-->
+<!--                &lt;!&ndash;버튼&ndash;&gt;-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="51dp"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_gravity="center">-->
 
-                    <Button
-                        android:id="@+id/Change_Btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_weight="5"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="5dp"
-                        android:text="과목 변경"
-                        android:backgroundTint="#d3abed"/>
+<!--                    <Button-->
+<!--                        android:id="@+id/Start_Btn"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="40dp"-->
+<!--                        android:layout_weight="5"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:text="시작"-->
+<!--                        android:backgroundTint="#d3abed"/>-->
 
-                </LinearLayout><!--버튼-->
-            </LinearLayout>
+<!--                    <Button-->
+<!--                        android:id="@+id/Change_Btn"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="40dp"-->
+<!--                        android:layout_weight="5"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_marginStart="5dp"-->
+<!--                        android:text="과목 변경"-->
+<!--                        android:backgroundTint="#d3abed"/>-->
 
-            <!--오른쪽 과목 선택 이전-->
-            <LinearLayout
-                android:layout_width="180dp"
-                android:layout_height="match_parent"
-                android:layout_marginTop="32dp"
-                android:layout_marginStart="10dp">
+<!--                </LinearLayout>&lt;!&ndash;버튼&ndash;&gt;-->
+<!--            </LinearLayout>-->
 
-                <ImageView
-                    android:id="@+id/Character"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:srcCompat="@drawable/Character" />
-            </LinearLayout>
+<!--            &lt;!&ndash;오른쪽 과목 선택 이전&ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="180dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginTop="32dp"-->
+<!--                android:layout_marginStart="10dp">-->
 
-
-
-            <!-- 오른쪽 과목 선택 이후
-            <LinearLayout
-                android:layout_width="180dp"
-                android:layout_height="match_parent"
-                android:layout_marginTop="32dp"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/subjectname">
-
-                <TextView
-                    android:id = "@+id/SubjectName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text = "수학"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:textSize="30dp"
-                    android:layout_marginStart="75dp"
-                    android:textColor="#ffffff"/>
-            </LinearLayout>
-            -->
+<!--                <ImageView-->
+<!--                    android:id="@+id/Character"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    tools:srcCompat="@drawable/character" />-->
+<!--            </LinearLayout>-->
 
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <!--하단 부분-->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="380dp"
-            android:layout_height="417dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/timer"
-            tools:ignore="MissingConstraints">
+<!--            &lt;!&ndash; 오른쪽 과목 선택 이후-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="180dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginTop="32dp"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:background="@drawable/subjectname">-->
 
-            <TextView
-                android:id="@+id/TodoList"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
-                android:text="TO DO LIST"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--                <TextView-->
+<!--                    android:id = "@+id/SubjectName"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text = "수학"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:textSize="30dp"-->
+<!--                    android:layout_marginStart="75dp"-->
+<!--                    android:textColor="#ffffff"/>-->
+<!--            </LinearLayout>-->
+<!--            &ndash;&gt;-->
 
-            <!--투두 리스트-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@+id/TodoList"
-                tools:context=".MainActivity">
 
-                <!--입력-->
-                <LinearLayout
-                    android:id="@+id/input"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+<!--        </androidx.appcompat.widget.LinearLayoutCompat>-->
 
-                    <EditText
-                        android:id="@+id/InputTodo"
-                        android:layout_width="275dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="10dp"
-                        android:hint="Input To do" />
+<!--        &lt;!&ndash;하단 부분&ndash;&gt;-->
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="380dp"-->
+<!--            android:layout_height="417dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/timer"-->
+<!--            tools:ignore="MissingConstraints">-->
 
-                    <Button
-                        android:id="@+id/saveButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_weight="5"
-                        android:backgroundTint="#d3abed"
-                        android:text="저장" />
-                </LinearLayout>
+<!--            <TextView-->
+<!--                android:id="@+id/TodoList"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:text="TO DO LIST"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Large"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-                <!--체크 리스트-->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layout_constraintTop_toBottomOf="@+id/input">
+<!--            &lt;!&ndash;투두 리스트&ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/TodoList"-->
+<!--                tools:context=".MainActivity">-->
 
-                    <LinearLayout
-                        android:id="@+id/layoutTodo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+<!--                &lt;!&ndash;입력&ndash;&gt;-->
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/input"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal">-->
 
-                        <CheckBox
-                            android:id="@+id/checkBox"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
+<!--                    <EditText-->
+<!--                        android:id="@+id/InputTodo"-->
+<!--                        android:layout_width="275dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:hint="Input To do" />-->
 
-                    </LinearLayout>
+<!--                    <Button-->
+<!--                        android:id="@+id/saveButton"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_marginEnd="16dp"-->
+<!--                        android:layout_weight="5"-->
+<!--                        android:backgroundTint="#d3abed"-->
+<!--                        android:text="저장" />-->
+<!--                </LinearLayout>-->
 
-                </androidx.cardview.widget.CardView>
+<!--                &lt;!&ndash;체크 리스트&ndash;&gt;-->
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/input">-->
 
-            </LinearLayout>
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/layoutTodo"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                        <CheckBox-->
+<!--                            android:id="@+id/checkBox"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="1" />-->
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            app:labelVisibilityMode="labeled"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/item_bottom_navigation_menu" />
+<!--                    </LinearLayout>-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                </androidx.cardview.widget.CardView>-->
+
+<!--            </LinearLayout>-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--            android:id="@+id/bottom_navigation_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="bottom"-->
+<!--            app:labelVisibilityMode="labeled"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:menu="@menu/item_bottom_navigation_menu" />-->
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 </layout>
