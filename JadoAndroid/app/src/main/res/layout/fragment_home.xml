@@ -29,18 +29,29 @@
                 android:orientation="vertical">
 
                 <!--타이머-->
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:text="시계"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    android:background="@drawable/timer_circle"
+                    android:gravity="center">
+
+                    <Chronometer
+                        android:id="@+id/StudyTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+
+                </LinearLayout>
 ㄴ
-                <!--버튼-->
+                <!--시작 & 과목 변경 버튼-->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="51dp"
                     android:orientation="horizontal"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:visibility="visible">
 
                     <Button
                         android:id="@+id/Start_Btn"
@@ -75,7 +86,7 @@
                     android:id="@+id/Character"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:srcCompat="@drawable/Character" />
+                    tools:srcCompat="@drawable/character" />
             </LinearLayout>
 
 
