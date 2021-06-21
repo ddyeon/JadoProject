@@ -11,7 +11,7 @@ import com.prolificinteractive.materialcalendarview.DayViewDecorator
 import com.prolificinteractive.materialcalendarview.DayViewFacade
 
 class EventDecorators(private val context: Context,
-                    private val stringProductColor : Array<String>, private val dates : CalendarDay
+                      private val stringProductColor: Array<String>, private val dates: CalendarDay
 ) : DayViewDecorator {
 
     private lateinit var colors : IntArray

@@ -7,16 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import com.example.jadoproject.data.DateInfo
-import com.example.jadoproject.data.ID
-import com.example.jadoproject.data.Info
-import com.example.jadoproject.data.Study
+
 import com.example.jadoproject.databinding.FragmentMypageBinding
-import com.google.firebase.FirebaseApp
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+
 
 class MypageFragment : Fragment() {
 
