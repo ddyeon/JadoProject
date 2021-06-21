@@ -4,16 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".HomeAfterFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-<!--
-    &lt;!&ndash;전체&ndash;&gt;
+    <!--전체-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        &lt;!&ndash;상단 부분&ndash;&gt;
+        <!--상단 부분-->
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/timer"
             android:layout_width="378dp"
@@ -26,32 +22,32 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
 
-            &lt;!&ndash;왼쪽&ndash;&gt;
+            <!--왼쪽-->
             <LinearLayout
                 android:layout_width="188dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:orientation="vertical">
 
-                &lt;!&ndash;타이머&ndash;&gt;
+                <!--타이머-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/timer_circle">
+                    android:background="@drawable/timer_circle"
+                    android:gravity="center">
 
-                    <TextView
+                    <Chronometer
                         android:id="@+id/StudyTime"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="00:00:00" />
+                        android:gravity="center" />
 
                 </LinearLayout>
 
 
-                &lt;!&ndash;버튼&ndash;&gt;
+                <!--버튼-->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
@@ -59,25 +55,26 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/Start_Btn"
+                        android:id="@+id/Stop_Btn"
                         android:layout_width="150dp"
                         android:layout_height="40dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="5"
                         android:backgroundTint="#d3abed"
                         android:text="종료" />
-                </LinearLayout> &lt;!&ndash;버튼&ndash;&gt;
+                </LinearLayout> <!--버튼-->
             </LinearLayout>
 
-            &lt;!&ndash;오른쪽&ndash;&gt;
+            <!--오른쪽-->
             <LinearLayout
                 android:layout_width="190dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="28dp"
                 android:baselineAligned="false"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
-                &lt;!&ndash;총 공부 시간&ndash;&gt;
+                <!--총 공부 시간-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -106,7 +103,7 @@
 
                 </LinearLayout>
 
-                &lt;!&ndash;실제 공부 시간&ndash;&gt;
+                <!--실제 공부 시간-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -134,7 +131,7 @@
                         android:textSize="20dp" />
                 </LinearLayout>
 
-                &lt;!&ndash;딴짓 횟수&ndash;&gt;
+                <!--딴짓 횟수-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -160,13 +157,11 @@
                         android:text="10:00:00"
                         android:textSize="20dp" />
                 </LinearLayout>
-
-
             </LinearLayout>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        &lt;!&ndash;하단 부분&ndash;&gt;
+        <!--하단 부분-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="380dp"
             android:layout_height="417dp"
@@ -189,15 +184,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            &lt;!&ndash;투두 리스트&ndash;&gt;
+            <!--투두 리스트-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/TodoList"
                 tools:context=".MainActivity">
 
-                &lt;!&ndash;입력&ndash;&gt;
+                <!--입력-->
                 <LinearLayout
                     android:id="@+id/input"
                     android:layout_width="match_parent"
@@ -223,7 +220,7 @@
                         android:text="저장" />
                 </LinearLayout>
 
-                &lt;!&ndash;체크 리스트&ndash;&gt;
+                <!--체크 리스트-->
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -249,17 +246,8 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            app:labelVisibilityMode="labeled"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/item_bottom_navigation_menu" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
