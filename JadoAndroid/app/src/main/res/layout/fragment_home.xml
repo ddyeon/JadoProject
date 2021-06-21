@@ -39,7 +39,11 @@
                     <Chronometer
                         android:id="@+id/StudyTimer"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/ilsanregual"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1"
+                        android:textSize="24dp"/>
                 </LinearLayout>
 
                 <!--시작 & 과목 변경 버튼-->
@@ -58,7 +62,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_weight="5"
                         android:backgroundTint="#d3abed"
-                        android:text="시작" />
+                        android:text="시작"
+                        android:fontFamily="@font/ilsanregual"/>
 
                     <Button
                         android:id="@+id/Change_Btn"
@@ -68,7 +73,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_weight="5"
                         android:backgroundTint="#d3abed"
-                        android:text="과목변경" />
+                        android:text="과목변경"
+                        android:fontFamily="@font/ilsanregual"/>
 
                 </LinearLayout><!--버튼-->
 
@@ -88,7 +94,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_weight="5"
                         android:backgroundTint="#d3abed"
-                        android:text="종료" />
+                        android:text="종료"
+                        android:fontFamily="@font/ilsanregual"/>
                 </LinearLayout> <!--버튼-->
             </LinearLayout>
 
@@ -133,7 +140,8 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:text="총 공부 시간"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        android:fontFamily="@font/ilsanregual"/>
 
                     <TextView
                         android:id="@+id/Totaltime"
@@ -143,7 +151,8 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginBottom="10dp"
                         android:text="10:00:00"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        android:fontFamily="@font/ilsanregual"/>
 
                 </LinearLayout>
 
@@ -162,7 +171,8 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:text="실제 공부 시간"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        android:fontFamily="@font/ilsanregual"/>
 
                     <TextView
                         android:id="@+id/Realtime"
@@ -173,6 +183,7 @@
                         android:layout_marginBottom="10dp"
                         android:text="10:00:00"
                         android:textSize="20dp" />
+                        android:fontFamily="@font/ilsanregual"
                 </LinearLayout>
 
                 <!--딴짓 횟수-->
@@ -189,7 +200,8 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:text="딴짓 횟수"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        android:fontFamily="@font/ilsanregual"/>
 
                     <TextView
                         android:id="@+id/NotStudy"
@@ -199,12 +211,10 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginBottom="10dp"
                         android:text="10:00:00"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        android:fontFamily="@font/ilsanregual"/>
                 </LinearLayout>
             </LinearLayout>
-
-
-
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <!--하단 부분-->
@@ -228,10 +238,13 @@
                 android:text="TO DO LIST"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/ilsanregual"/>
+
 
             <!--투두 리스트-->
             <LinearLayout
+                android:id="@+id/todolinear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -249,44 +262,49 @@
 
                     <EditText
                         android:id="@+id/InputTodo"
-                        android:layout_width="275dp"
+                        android:layout_width="230dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="10dp"
-                        android:hint="Input To do" />
+                        android:hint="Input To do"
+                        android:fontFamily="@font/ilsanregual"/>
 
                     <Button
                         android:id="@+id/saveButton"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="5"
+                        android:backgroundTint="#d3abed"
+                        android:text="저장"
+                        android:textSize="12dp"
+                        android:fontFamily="@font/ilsanregual"/>
+                    <Button
+                        android:id="@+id/removeButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
                         android:layout_marginEnd="16dp"
                         android:layout_weight="5"
                         android:backgroundTint="#d3abed"
-                        android:text="저장" />
+                        android:text="삭제"
+                        android:textSize="12dp"
+                        android:fontFamily="@font/ilsanregual"/>
+
+
+
                 </LinearLayout>
 
                 <!--체크 리스트-->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layout_constraintTop_toBottomOf="@+id/input">
+              <androidx.recyclerview.widget.RecyclerView
+                  android:id="@+id/todorecyclerview"
+                  tools:itemCount="5"
+                  tools:listitem="@layout/item_todolist"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
 
-                    <LinearLayout
-                        android:id="@+id/layoutTodo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
 
-                        <CheckBox
-                            android:id="@+id/checkBox"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
