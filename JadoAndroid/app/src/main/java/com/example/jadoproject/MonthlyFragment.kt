@@ -43,29 +43,31 @@ class MonthlyFragment : Fragment() {
 
     }
 
-    fun setDate()
-    {
-        val c = Calendar.getInstance().time
-        val df = SimpleDateFormat("yyyy-mm-dd")
-        val formattedDate = df.format(c)
-
-        binding.calanderView.setUseThreeLetterAbbreviation(true)
-
-        val sdf = SimpleDateFormat("MMMM yyyy")
-
-        val myCalendar = Calendar.getInstance()
-
-        myCalendar.set(Calendar.YEAR, 2021)
-        myCalendar.set(Calendar.MONTH, 6)
-        myCalendar.set(Calendar.DAY_OF_MONTH, 17 )
-
-
-       // Log.d("time", System.currentTimeMillis().toString())
-
-
-        val event = Event(Color.BLUE, System.currentTimeMillis(), "Test")
-        binding.calanderView.addEvent(event)
-
+    fun setDate(){
+//    {
+//        val c = Calendar.getInstance().time
+//        val df = SimpleDateFormat("yyyy-mm-dd")
+//        val formattedDate = df.format(c)
+//
+//
+//
+//        binding.calanderView.setUseThreeLetterAbbreviation(true)
+//
+//        val sdf = SimpleDateFormat("MMMM yyyy")
+//
+//        val myCalendar = Calendar.getInstance()
+//
+//        myCalendar.set(Calendar.YEAR, 2021)
+//        myCalendar.set(Calendar.MONTH, 6)
+//        myCalendar.set(Calendar.DAY_OF_MONTH, 17 )
+//
+//
+//       // Log.d("time", System.currentTimeMillis().toString())
+//
+//
+//        val event = Event(Color.BLUE, System.currentTimeMillis(), "Test")
+//        binding.calanderView.addEvent(event)
+//
 
 
     }

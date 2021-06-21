@@ -16,17 +16,18 @@
             android:layout_height="250dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            android:orientation="horizontal">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
 
             <!--왼쪽-->
             <LinearLayout
                 android:layout_width="188dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="40dp">
+                android:layout_marginTop="40dp"
+                android:orientation="vertical">
 
                 <!--타이머-->
                 <LinearLayout
@@ -41,27 +42,26 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"/>
+                        android:gravity="center" />
 
                 </LinearLayout>
-
 
 
                 <!--버튼-->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/Stop_Btn"
                         android:layout_width="150dp"
                         android:layout_height="40dp"
-                        android:layout_weight="5"
                         android:layout_marginTop="10dp"
-                        android:text="종료"
-                        android:backgroundTint="#d3abed"/>
+                        android:layout_weight="5"
+                        android:backgroundTint="#d3abed"
+                        android:text="종료" />
                 </LinearLayout> <!--버튼-->
             </LinearLayout>
 
@@ -71,89 +71,92 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="28dp"
                 android:baselineAligned="false"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <!--총 공부 시간-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_marginBottom="2dp"
                     android:background="@drawable/home_time"
-                    android:layout_marginBottom="2dp">
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
-                        android:text="총 공부 시간"
-                        android:textSize="20dp"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"/>
+                        android:layout_marginTop="10dp"
+                        android:text="총 공부 시간"
+                        android:textSize="20dp" />
+
                     <TextView
                         android:id="@+id/Totaltime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
-                        android:text="10:00:00"
-                        android:textSize="20dp"
                         android:layout_marginStart="10dp"
-                        android:layout_marginBottom="10dp"/>
+                        android:layout_marginBottom="10dp"
+                        android:text="10:00:00"
+                        android:textSize="20dp" />
 
                 </LinearLayout>
 
-            <!--실제 공부 시간-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/home_time"
-                android:layout_marginBottom="2dp">
-                <TextView
-                    android:layout_width="wrap_content"
+                <!--실제 공부 시간-->
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:text="실제 공부 시간"
-                    android:textSize="20dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/home_time"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/Realtime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:text="10:00:00"
-                    android:textSize="20dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginBottom="10dp"/>
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="실제 공부 시간"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/Realtime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="10:00:00"
+                        android:textSize="20dp" />
+                </LinearLayout>
 
                 <!--딴짓 횟수-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/home_time">
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:text="딴짓 횟수"
-                    android:textSize="20dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"/>
+                    android:background="@drawable/home_time"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/NotStudy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:text="10:00:00"
-                    android:textSize="20dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginBottom="10dp"/>
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="딴짓 횟수"
+                        android:textSize="20dp" />
 
-
+                    <TextView
+                        android:id="@+id/NotStudy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="10:00:00"
+                        android:textSize="20dp" />
+                </LinearLayout>
             </LinearLayout>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -186,6 +189,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/TodoList"
                 tools:context=".MainActivity">
 
@@ -241,16 +246,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            app:labelVisibilityMode="labeled"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/item_bottom_navigation_menu" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
