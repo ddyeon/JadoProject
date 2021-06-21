@@ -1,5 +1,6 @@
 package com.example.jadoproject
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,10 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import com.example.jadoproject.data.DateInfo
-import com.example.jadoproject.data.ID
-import com.example.jadoproject.data.Info
-import com.example.jadoproject.data.Study
 import com.example.jadoproject.databinding.FragmentMypageBinding
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.DataSnapshot
@@ -22,7 +19,8 @@ class MypageFragment : Fragment() {
 
     private lateinit var binding : FragmentMypageBinding
 
-
+    val FIREBASE_URL = "https://jadoproject-530a4-default-rtdb.asia-southeast1.firebasedatabase.app"
+    private val database: FirebaseDatabase = FirebaseDatabase.getInstance(FIREBASE_URL)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,14 +29,47 @@ class MypageFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_mypage, container,false)
 
+        binding.btnLogout.setOnClickListener {
 
+            val loginIntent = Intent(activity, LoginActivity::class.java)
+            startActivity(loginIntent)
+        }
 
+        binding.btnInfo.setOnClickListener {
+            val intent = Intent(activity, JoinActivity::class.java)
+            intent.putExtra("flag", "modify")
+            startActivity(intent)
+        }
 
+        firebaseConnet()
 
-
-       return binding.root
+        return binding.root
     }
 
+    fun firebaseConnet()
+    {
+
+        val myRef = database.getReference("User").child("dayeon")
 
 
+        myRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val userInfo = dataSnapshot.value
+                Log.d("userInfo", userInfo.toString())
+
+
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("connet", "fail")
+                Log.d("eroor", error.toString())
+
+            }
+
+
+        })
+
+
+    }
 }

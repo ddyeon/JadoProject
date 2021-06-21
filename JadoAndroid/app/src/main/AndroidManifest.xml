@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.jadoproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -26,12 +27,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JadoProject">
         <activity android:name=".MainActivity">
+
+        </activity>
+
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".JoinActivity">
+
+        </activity>
+
+
+  <!--      <activity android:name=".MypageFragment"
+            tools:ignore="Instantiatable">
+
+        </activity>-->
+
     </application>
+
+
 
 </manifest>
