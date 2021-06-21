@@ -50,6 +50,7 @@ class HomeFragment : Fragment() {
             binding.cha.visibility = View.GONE
             binding.TimeTable.visibility = View.VISIBLE
             binding.Stop.visibility = View.VISIBLE
+            database.reference.child("Camera").setValue("true")
         }
 
         binding.StopBtn.setOnClickListener {
@@ -59,6 +60,7 @@ class HomeFragment : Fragment() {
             binding.cha.visibility = View.VISIBLE
             binding.TimeTable.visibility = View.GONE
             binding.Stop.visibility = View.GONE
+            database.reference.child("Camera").setValue("false")
         }
 
 
@@ -85,30 +87,6 @@ class HomeFragment : Fragment() {
 
 
         return binding.root
-
-
-//
-//        val listView1: ListView? = null
-//        val adapter: ArrayAdapter<String>? = null
-//        var listItem: ArrayList<String>? = null
-//
-//        listItem = ArrayList<String>()
-//        listItem.add("홍길동");
-//        listItem.add("이순신");
-//        listItem.add("강감찬");
-//        listItem.add("조자룡");
-//
-//        binding.saveButton.setOnClickListener(View.OnClickListener {
-//            listItem.add(binding.InputTodo.getText().toString())
-//            adapter!!.notifyDataSetChanged() // 변경되었음을 어답터에 알려준다.
-//            binding.InputTodo.setText("")
-//        })
-//
-//        binding.listview1!!.onItemClickListener =
-//            AdapterView.OnItemClickListener { adapterView, view, i, l ->
-//                listItem.removeAt(i)
-//                adapter!!.notifyDataSetChanged()
-//            }
 
 
     }
