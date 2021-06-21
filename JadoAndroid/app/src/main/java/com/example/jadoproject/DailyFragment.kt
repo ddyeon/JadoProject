@@ -38,12 +38,12 @@ class DailyFragment : Fragment() {
         binding.piechart.setUsePercentValues(true)
 
         val pieList : ArrayList<PieEntry> = arrayListOf()
-        pieList.add(PieEntry(8f,"Math", 0))
-        pieList.add(PieEntry(15f,"Korean", 0))
-        pieList.add(PieEntry(12f,"English", 0))
+        pieList.add(PieEntry(25f,"Math", 0))
+        pieList.add(PieEntry(30f,"Korean", 0))
+        pieList.add(PieEntry(20f,"English", 0))
         pieList.add(PieEntry(25f,"Society", 0))
 
-        val dataSet : PieDataSet = PieDataSet(pieList, getString(R.string.app_name))
+        val dataSet : PieDataSet = PieDataSet(pieList,"")
         val data = PieData(dataSet)
 
         data.setValueFormatter(PercentFormatter())
@@ -58,6 +58,8 @@ class DailyFragment : Fragment() {
         dataSet.setColors(ColorTemplate.VORDIPLOM_COLORS,200)
         data.setValueTextSize(13f)
         data.setValueTextColor(Color.DKGRAY)
+
+
 
     }
 
