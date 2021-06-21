@@ -44,7 +44,11 @@
         android:id="@+id/weekFragment"
         android:name="com.example.jadoproject.WeekFragment"
         android:label="fragment_week"
-        tools:layout="@layout/fragment_week" />
+        tools:layout="@layout/fragment_week" >
+        <action
+            android:id="@+id/action_weekFragment_to_dailyFragment"
+            app:destination="@id/dailyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/home"
         android:name="com.example.jadoproject.HomeFragment"
