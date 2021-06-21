@@ -75,7 +75,7 @@
                     android:id="@+id/Character"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:srcCompat="@drawable/Character" />
+                    tools:srcCompat="@drawable/character" />
             </LinearLayout>
 
 
