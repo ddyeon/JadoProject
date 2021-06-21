@@ -11,6 +11,7 @@
       <include
           android:id="@+id/include2"
           layout="@layout/item_week"
+          app:title= "@{@string/mon}"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="32dp"
@@ -23,6 +24,7 @@
       <include
           android:id="@+id/include3"
           layout="@layout/item_week"
+          app:title= "@{@string/tue}"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="24dp"
@@ -36,6 +38,7 @@
       <include
           android:id="@+id/include4"
           layout="@layout/item_week"
+          app:title= "@{@string/wen}"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="24dp"
@@ -49,6 +52,7 @@
       <include
           android:id="@+id/include5"
           layout="@layout/item_week"
+          app:title= "@{@string/thu}"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="24dp"
@@ -62,6 +66,7 @@
       <include
           android:id="@+id/include6"
           layout="@layout/item_week"
+          app:title= "@{@string/fri}"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="24dp"
@@ -75,6 +80,7 @@
       <include
           android:id="@+id/include7"
           layout="@layout/item_week"
+          app:title= "@{@string/sat}"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="24dp"
@@ -88,6 +94,7 @@
       <include
           android:id="@+id/include8"
           layout="@layout/item_week"
+          app:title= "@{@string/sun}"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="24dp"
