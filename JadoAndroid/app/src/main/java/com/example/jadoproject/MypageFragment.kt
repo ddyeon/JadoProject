@@ -21,8 +21,7 @@ import com.google.firebase.database.ValueEventListener
 class MypageFragment : Fragment() {
 
     private lateinit var binding : FragmentMypageBinding
-    val FIREBASE_URL = "https://jadoproject-530a4-default-rtdb.asia-southeast1.firebasedatabase.app"
-    private val database: FirebaseDatabase = FirebaseDatabase.getInstance(FIREBASE_URL)
+
 
 
     override fun onCreateView(
@@ -32,18 +31,8 @@ class MypageFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_mypage, container,false)
 
-      /*  val info : ID = ID(Info("dayeon", "123", "01083726110", "ekdus2574@gmail.com"),
-            Study(DateInfo(3,100,))
-        )
-*/
 
 
-        binding.cameraBtn.setOnClickListener {
-            firebaseConnet()
-            Log.d("click", "button")
-            //database.reference.child("ID").setValue(info)
-
-        }
 
 
 
@@ -51,30 +40,5 @@ class MypageFragment : Fragment() {
     }
 
 
-    fun firebaseConnet()
-    {
-
-        val myRef = database.getReference("Camera")
-
-        myRef.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val cameraInfo = dataSnapshot.value
-                Log.d("camera", cameraInfo.toString())
-
-
-
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Log.d("connet", "fail")
-                Log.d("eroor", error.toString())
-
-            }
-
-
-        })
-
-
-    }
 
 }

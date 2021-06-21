@@ -38,7 +38,7 @@ class WeeklyFragment : Fragment() {
                 //month로 이동
                 2 ->
                 {
-                    parentFragmentManager.beginTransaction().replace(R.id.weekContainer,MonthlyFragment()).commit()
+                   // parentFragmentManager.beginTransaction().replace(R.id.weekContainer,MonthlyFragment()).commit()
                 }
             }
         }
