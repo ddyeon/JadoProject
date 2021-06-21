@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        binding.bottomNavigationView.itemIconTintList = null
 
 
 

@@ -3,15 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/home"
+        android:icon="@drawable/homeicon"
         android:title="홈"/>
 
     <item android:id="@+id/week"
+        android:icon="@drawable/calendaricon"
         android:title="주간"/>
 
 
     <item android:id="@+id/group"
+        android:icon="@drawable/groupicon"
         android:title="그룹"/>
 
     <item android:id="@+id/mypage"
+        android:icon="@drawable/mypageicon"
         android:title="마이페이지"/>
 </menu>
