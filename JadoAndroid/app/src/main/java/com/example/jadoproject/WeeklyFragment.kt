@@ -22,18 +22,18 @@ class WeeklyFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_weekly, container, false)
 
-        if(binding.switchMultiButton.selectedTab == 0)
-            parentFragmentManager.beginTransaction().replace(R.id.weekContainer,WeekFragment()).commit()
+        if(binding.switchMultiButton.selectedTab == 2)
+            parentFragmentManager.beginTransaction().replace(R.id.weekContainer,MonthlyFragment()).commit()
 
         binding.switchMultiButton.setOnSwitchListener { position, tabText ->
             when (position) {
                 0 -> {
-                    parentFragmentManager.beginTransaction().replace(R.id.weekContainer,WeekFragment()).commit()
+                    parentFragmentManager.beginTransaction().replace(R.id.weekContainer,DailyFragment()).commit()
 
 
                 }
                 1->  {
-                    parentFragmentManager.beginTransaction().replace(R.id.weekContainer,DailyFragment()).commit()
+                    parentFragmentManager.beginTransaction().replace(R.id.weekContainer,WeekFragment()).commit()
                 }
                 //month로 이동
                 2 ->

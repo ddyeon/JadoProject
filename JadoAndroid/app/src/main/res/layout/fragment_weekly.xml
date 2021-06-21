@@ -22,7 +22,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:selectedColor="#eac9ff"
-            app:selectedTab="0"
+            app:selectedTab="2"
             app:strokeRadius="8dp"
             app:strokeWidth="2dp"
             app:switchTabs="@array/switchbutton"

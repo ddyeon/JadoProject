@@ -7,16 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+
 import com.example.jadoproject.databinding.FragmentMypageBinding
-import com.google.firebase.FirebaseApp
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+
 
 class MypageFragment : Fragment() {
 
     private lateinit var binding : FragmentMypageBinding
+
 
 
     override fun onCreateView(
@@ -31,10 +29,8 @@ class MypageFragment : Fragment() {
 
 
 
-
        return binding.root
     }
-
 
 
 
