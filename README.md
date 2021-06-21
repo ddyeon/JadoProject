@@ -19,7 +19,7 @@
 ---
 *3. DB Structure*
  ``` bash
- ├── CamerInfo
+ ├── CamerInfo(true/false)
  │ 
  ├── ID
  │   ├── UserInfo
