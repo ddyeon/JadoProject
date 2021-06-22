@@ -60,7 +60,8 @@ class JoinActivity: AppCompatActivity() {
                 val info : Info = Info(binding.txtJoinId.text.toString(), binding.txtJoinName.text.toString(),
                     binding.txtJoinPwd.text.toString(), binding.txtJoinNum.text.toString())
 
-                database.getReference("User").child("dayeon").child("UserInfo").setValue(info)
+                val id_name = binding.txtJoinId.text.toString().split("@")
+                database.getReference("User").child(id_name[0]).child("UserInfo").setValue(info)
 
                 onBackPressed()
             }

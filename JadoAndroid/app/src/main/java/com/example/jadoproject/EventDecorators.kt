@@ -23,7 +23,7 @@ class EventDecorators(private val context: Context,
         for (i in stringProductColor.indices)
             colors[i] = Color.parseColor(stringProductColor[i])
 
-        view?.addSpan(CustomMultipleSpan(5f, colors))
+        view?.addSpan(CustomMultipleSpan(8f, colors))
 
     }
 
