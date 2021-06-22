@@ -28,8 +28,11 @@ class WeeklyFragment : Fragment() {
         binding.switchMultiButton.setOnSwitchListener { position, tabText ->
             when (position) {
                 0 -> {
-                    parentFragmentManager.beginTransaction().replace(R.id.weekContainer,DailyFragment()).commit()
-
+                    parentFragmentManager.beginTransaction().replace(R.id.weekContainer,DailyFragment().apply {
+                        arguments = Bundle().apply {
+                            putString("flags", "first")
+                        }
+                    }).commit()
 
                 }
                 1->  {

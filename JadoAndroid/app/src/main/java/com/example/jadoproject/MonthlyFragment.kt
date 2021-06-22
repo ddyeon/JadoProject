@@ -74,6 +74,7 @@ class MonthlyFragment : Fragment() {
             parentFragmentManager.beginTransaction().replace(R.id.weekContainer,DailyFragment().apply {
                 arguments = Bundle().apply {
                     putString("selectday", selectDate.toString())
+                    putString("flags", "second")
                 }
             }).commit()
 
