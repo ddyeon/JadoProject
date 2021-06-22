@@ -296,13 +296,21 @@
 
                 </LinearLayout>
 
-                <!--체크 리스트-->
-              <androidx.recyclerview.widget.RecyclerView
-                  android:id="@+id/todorecyclerview"
-                  tools:itemCount="5"
-                  tools:listitem="@layout/item_todolist"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <!--체크 리스트-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/todorecyclerview"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/item_todolist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/ilsanregual"
+                        android:layout_marginTop="55dp"/>
+                </LinearLayout>
+
+
 
 
 

@@ -1,11 +1,10 @@
 package com.example.jadoproject
 
-import android.content.Intent
+import android.content.DialogInterface
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.provider.ContactsContract
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.jadoproject.data.Info
@@ -16,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+
 
 class JoinActivity: AppCompatActivity() {
 
@@ -37,10 +37,32 @@ class JoinActivity: AppCompatActivity() {
         val flag = intent.getStringExtra("flag")
         Log.d("flag", flag.toString())
 
+
+
+
         if (flag.toString() == "register") {
             Log.d("if", "0 IN!")
 
+            binding.btnIdChk.setOnClickListener {
+                Log.d("chek", "확인")
+                val dial = AlertDialog.Builder(this)
+                dial.setTitle("Title")
+                dial.setMessage("Message")
+                dial.setNeutralButton("Neutral") { dialogInterface: DialogInterface, i: Int -> toast("Neutral") }
+                dial.show()
+
+            }
+
             binding.btnCancel.setOnClickListener {
+                onBackPressed()
+            }
+
+            binding.btnOk.setOnClickListener {
+                val info : Info = Info(binding.txtJoinId.text.toString(), binding.txtJoinName.text.toString(),
+                    binding.txtJoinPwd.text.toString(), binding.txtJoinNum.text.toString())
+
+                database.getReference("User").child("hyunji").child("UserInfo").setValue(info)
+
                 onBackPressed()
             }
 
@@ -73,6 +95,11 @@ class JoinActivity: AppCompatActivity() {
 
         }
 
+    }
+
+
+    private fun toast(message:String){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     fun firebaseConnet(){
