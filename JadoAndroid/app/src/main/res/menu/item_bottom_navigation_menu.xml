@@ -4,18 +4,22 @@
 
     <item android:id="@+id/home"
         android:icon="@drawable/homeicon"
+        android:fontFamily="@font/ilsanregual"
         android:title="홈"/>
 
     <item android:id="@+id/week"
         android:icon="@drawable/calendaricon"
+        android:fontFamily="@font/ilsanregual"
         android:title="주간"/>
 
 
     <item android:id="@+id/group"
         android:icon="@drawable/groupicon"
+        android:fontFamily="@font/ilsanregual"
         android:title="그룹"/>
 
     <item android:id="@+id/mypage"
         android:icon="@drawable/mypageicon"
+        android:fontFamily="@font/ilsanregual"
         android:title="마이페이지"/>
 </menu>

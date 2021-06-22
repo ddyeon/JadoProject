@@ -1,7 +1,10 @@
 package com.example.jadoproject
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.provider.ContactsContract
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -15,7 +18,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-
 
 class JoinActivity: AppCompatActivity() {
 
@@ -37,18 +39,15 @@ class JoinActivity: AppCompatActivity() {
         val flag = intent.getStringExtra("flag")
         Log.d("flag", flag.toString())
 
-
-
-
         if (flag.toString() == "register") {
             Log.d("if", "0 IN!")
 
             binding.btnIdChk.setOnClickListener {
-                Log.d("chek", "확인")
+
                 val dial = AlertDialog.Builder(this)
-                dial.setTitle("Title")
-                dial.setMessage("Message")
-                dial.setNeutralButton("Neutral") { dialogInterface: DialogInterface, i: Int -> toast("Neutral") }
+                dial.setTitle("ID 확인")
+                dial.setMessage("확인 되었습니다.")
+                dial.setNeutralButton("OK") { dialogInterface: DialogInterface, i: Int -> toast("OK") }
                 dial.show()
 
             }
@@ -61,7 +60,7 @@ class JoinActivity: AppCompatActivity() {
                 val info : Info = Info(binding.txtJoinId.text.toString(), binding.txtJoinName.text.toString(),
                     binding.txtJoinPwd.text.toString(), binding.txtJoinNum.text.toString())
 
-                database.getReference("User").child("hyunji").child("UserInfo").setValue(info)
+                database.getReference("User").child("dayeon").child("UserInfo").setValue(info)
 
                 onBackPressed()
             }
@@ -88,18 +87,17 @@ class JoinActivity: AppCompatActivity() {
                     onBackPressed()
                 }
                 else if (binding.txtJoinPwd.text.toString() != binding.txtJoinPwd2.text.toString()){
-                    Toast.makeText(this, "비밀번호 확인을 다시 해주세요", Toast.LENGTH_SHORT).show()
+                    val dial = AlertDialog.Builder(this)
+                    dial.setTitle("비밀번호 오류")
+                    dial.setMessage("비밀번호를 다시 확인해주세요.")
+                    dial.setNeutralButton("OK") { dialogInterface: DialogInterface, i: Int -> toast("OK") }
+                    dial.show()
                 }
 
             }
 
         }
 
-    }
-
-
-    private fun toast(message:String){
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     fun firebaseConnet(){
@@ -144,6 +142,10 @@ class JoinActivity: AppCompatActivity() {
         binding.txtJoinPwd2.setText(userInfo.password)
         binding.txtJoinNum.setText(userInfo.phoneNumber)
 
+    }
+
+    private fun toast(message:String){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
 }

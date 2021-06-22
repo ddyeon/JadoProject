@@ -27,7 +27,9 @@
             app:strokeRadius="8dp"
             app:strokeWidth="2dp"
             app:switchTabs="@array/switchbutton"
-            app:textSize="14sp" />
+            app:textSize="14sp"
+            android:fontFamily="@font/ilsanregual"
+            />
 
         <FrameLayout
             android:id="@+id/weekContainer"
