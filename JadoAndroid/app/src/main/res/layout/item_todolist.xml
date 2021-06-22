@@ -17,8 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="@android:color/transparent"
-
-            app:cardBackgroundColor="#00000000"
+            app:cardElevation="0dp"
+            android:outlineAmbientShadowColor="@android:color/transparent"
             app:layout_constraintTop_toBottomOf="@+id/input">
 
             <LinearLayout

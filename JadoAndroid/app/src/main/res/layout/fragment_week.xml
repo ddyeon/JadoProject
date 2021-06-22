@@ -118,7 +118,6 @@
           android:layout_height="wrap_content"
           android:layout_marginTop="32dp"
           android:text="주간 총 시간 : "
-          android:fontFamily="@font/ilsanregual"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toBottomOf="@+id/include8"

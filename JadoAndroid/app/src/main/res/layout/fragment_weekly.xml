@@ -28,7 +28,6 @@
             app:strokeWidth="2dp"
             app:switchTabs="@array/switchbutton"
             app:textSize="14sp"
-            android:fontFamily="@font/ilsanregual"
             />
 
         <FrameLayout
