@@ -46,18 +46,61 @@ class DailyFragment : Fragment() {
         val selectDay = arguments?.getString("selectday")
         val textday = selectDay?.substring(17,18) + "월" + selectDay?.substring(19,21) + "일"
 
-        if(selectDay != null)
-            binding.dailydate.text = textday
-        else
-            binding.dailydate.text = CalendarDay.today().toString()
+      /*  if(selectDay != null)
+            binding.dailydate.text = textday*/
+
 
         val totaldate = selectDay?.substring(12,17) + "0" + selectDay?.substring(17,21)
         Log.d("selectDay", totaldate)
-        firebaseConnet(totaldate)
 
-        drawChar()
+        //그냥 일간
+        if(arguments?.getString("flags") == "first")
+        {
+            binding.dailydate.text = CalendarDay.today().toString() //오늘날짜
+            todayConnet()
+            drawChar(30f,30f,30f)
+        }
+        //month에서 클릭해서 이동했을때
+        else
+        {
+            binding.dailydate.text = textday
+            drawChar(55f,30f,15f)
+            firebaseConnet(totaldate)
+        }
+
+
+
 
         return binding.root
+    }
+
+    fun todayConnet()
+    {
+        val studyRef = database.getReference("User").child("hyunji").child("Study").child("2021-06-23")
+
+        val studyArray : ArrayList<Any?> = arrayListOf()
+        var times : ArrayList<StudyDate> = arrayListOf()
+
+        studyRef.addListenerForSingleValueEvent(object  : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                studyArray.add(snapshot.value)
+                val jsonString = gson.toJson(studyArray)
+                val listType = object : TypeToken<ArrayList<StudyDate>>() {}.type
+                val newList = gson.fromJson<ArrayList<StudyDate>>(jsonString, listType)
+                Log.d("studylist", newList.toString())
+                times = newList
+                textset(times[0])
+
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("connet", "fail")
+                Log.d("eroor", error.toString())
+            }
+
+        })
+
     }
 
 
@@ -85,6 +128,7 @@ class DailyFragment : Fragment() {
                     Log.d("neslist",newList.toString())
                     textset(dateresult[0])
 
+
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -99,14 +143,14 @@ class DailyFragment : Fragment() {
 
         }
 
-    fun drawChar()
+    fun drawChar(math : Float, korean : Float, english : Float)
     {
         binding.piechart.setUsePercentValues(true)
 
         val pieList : ArrayList<PieEntry> = arrayListOf()
-        pieList.add(PieEntry(55f,"Math", 0))
-        pieList.add(PieEntry(30f,"Korean", 0))
-        pieList.add(PieEntry(20f,"English", 0))
+        pieList.add(PieEntry(math,"Math", 0))
+        pieList.add(PieEntry(korean,"Korean", 0))
+        pieList.add(PieEntry(english,"English", 0))
 
         val dataSet : PieDataSet = PieDataSet(pieList,"")
         val data = PieData(dataSet)
@@ -142,31 +186,28 @@ class DailyFragment : Fragment() {
     fun timeCal(studyDate: StudyDate)
     {
 
-        val studySubject : subjects = studyDate.subjects
-        val f = SimpleDateFormat("HH:mm:ss", Locale.KOREA)
-        val totlas = f.parse(studyDate.total_time)
-        val beh = f.parse(studyDate.behavior_time)
+        val t_time = studyDate.total_time.split(":")
+        val b_time = studyDate.behavior_time.split(":")
 
-        val diff = totlas.time - beh.time
-        val sec = diff / 1000
-        val min = diff / 1000/60
-        val hour = diff /1000/60/60
-        Log.d("sec", "$min")
+        val t_hour = t_time[0]
+        val b_hour = b_time[0]
 
-      /*  val totalTime: Date = f.parse(studyDate.total_time)
-        val mathTime: Date = f.parse(studySubject.Math)
-        val koreanTime: Date = f.parse(studySubject.Korean)
-        val englishTime: Date = f.parse(studySubject.English)
+        val t_min = t_time[1]
+        val b_min = b_time[1]
+
+        val t_sec = t_time[2]
+        val b_sec = b_time[2]
+
+        val r_hour = t_hour.toInt() - b_hour.toInt()
+        val r_min = t_min.toInt() - b_min.toInt()
+        val r_sec = t_sec.toInt() - b_sec.toInt()
+
+        val r_time = String.format("%02d", r_hour) +  ":" + String.format("%02d", r_min) +  ":" +  String.format("%02d", r_sec)
+        Log.d("real_time", r_time)
+
+        binding.realtime.text = r_time
 
 
-        val diffmath = (abs(mathTime.time) / abs(totalTime.time))
-        val diffkorea = (abs(koreanTime.time) / abs(totalTime.time))
-       val diffenglish = (abs(englishTime.time) / abs(totalTime.time))
-
-
-        Log.d("timeeee","math${diffmath}korea${diffkorea}english${diffenglish}")
-*/
-        //Log.d("diff", "math${diffmath}korea${diffkorea}english${diffenglish}")
 
     }
 

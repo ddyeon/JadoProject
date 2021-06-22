@@ -29,7 +29,6 @@ class LoginActivity : AppCompatActivity() {
         // 상단바 숨김
         supportActionBar?.hide()
 
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
         val myRef = database.getReference("User").child("dayeon").child("UserInfo")

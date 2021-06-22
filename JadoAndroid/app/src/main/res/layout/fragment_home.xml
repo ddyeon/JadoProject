@@ -297,12 +297,17 @@
                 </LinearLayout>
 
                 <!--체크 리스트-->
-              <androidx.recyclerview.widget.RecyclerView
-                  android:id="@+id/todorecyclerview"
-                  tools:itemCount="5"
-                  tools:listitem="@layout/item_todolist"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/todorecyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/item_todolist" />
+
+
+
+
 
 
 

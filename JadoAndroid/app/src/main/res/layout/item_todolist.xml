@@ -13,9 +13,9 @@
 
 
         <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/input">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/input">
 
         <LinearLayout
             android:id="@+id/layoutTodo"
@@ -33,6 +33,8 @@
             <TextView
                 android:id="@+id/todotext"
                 android:text="자두 완성시키기"
+                android:layout_gravity="center"
+                android:fontFamily="@font/ilsanregual"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
