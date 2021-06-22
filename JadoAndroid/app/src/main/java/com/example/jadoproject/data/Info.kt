@@ -27,10 +27,10 @@ data class subjects(
 )
 
 data class Info(
-    var Email : String,
-    var Name : String,
-    var Password : String,
-    var PhoneNumber : String
+    var email : String,
+    var name : String,
+    var password : String,
+    var phoneNumber : String
 )
 
 data class weekdata(
