@@ -11,15 +11,17 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/weekconst"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="100dp">
 
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="@{title}"
+            android:fontFamily="@font/ilsanregual"
+            android:textSize="16sp"
             android:paddingTop="6dp"
+            android:text="@{title}"
             app:layout_constraintStart_toEndOf="@+id/progressBar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,6 +40,30 @@
             app:layout_constraintBottom_toBottomOf="@+id/date"
             app:layout_constraintStart_toEndOf="@+id/date"
             app:layout_constraintTop_toTopOf="@+id/date" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/ilsanregual"
+            android:text="총 공부 시간 :"
+            android:letterSpacing="0.09"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/progressBar"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+        <TextView
+            android:id="@+id/studytime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/ilsanregual"
+            android:text="0"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

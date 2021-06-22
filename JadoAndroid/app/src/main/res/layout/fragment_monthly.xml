@@ -18,6 +18,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/calendarbackgorund"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +29,6 @@
                         android:id="@+id/calendarView"
                         android:layout_width="match_parent"
                         android:layout_height="320dp"
-                        android:layout_marginTop="4dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -43,7 +43,7 @@
                     android:id="@+id/constraintLayout2"
                     android:layout_width="0dp"
                     android:layout_height="200dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/monthlybackground"
                     app:layout_constraintEnd_toStartOf="@+id/constraintLayout3"
@@ -55,8 +55,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="5월"
                         android:fontFamily="@font/ilsanregual"
+                        android:text="5월"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -66,9 +66,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="4dp"
-                        android:text="총 공부 시간"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/ilsanregual"
+                        android:text="총 공부 시간"
+                        android:textColor="#212121"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -78,8 +79,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="8dp"
-                        android:text="TextView"
                         android:fontFamily="@font/ilsanregual"
+                        android:text="112:32:48 시간"
                         app:layout_constraintStart_toStartOf="@+id/textView15"
                         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
@@ -88,9 +89,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:text="실 공부 시간"
+                        android:layout_marginTop="16dp"
                         android:fontFamily="@font/ilsanregual"
+                        android:text="실 공부 시간"
+                        android:textColor="#212121"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
@@ -100,8 +102,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="8dp"
-                        android:text="TextView"
                         android:fontFamily="@font/ilsanregual"
+                        android:text="100:12:11 시간"
                         app:layout_constraintStart_toStartOf="@+id/textView17"
                         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
@@ -110,9 +112,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="14dp"
-                        android:layout_marginTop="8dp"
-                        android:text="딴짓 횟수"
+                        android:layout_marginTop="16dp"
                         android:fontFamily="@font/ilsanregual"
+                        android:text="졸음 횟수"
+                        android:textColor="#212121"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
@@ -120,12 +123,11 @@
                         android:id="@+id/textView23"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="8dp"
-                        android:text="TextView"
+                        android:layout_marginStart="8dp"
                         android:fontFamily="@font/ilsanregual"
-                        app:layout_constraintStart_toStartOf="@+id/textView22"
-                        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+                        android:text="24번"
+                        app:layout_constraintStart_toEndOf="@+id/textView22"
+                        app:layout_constraintTop_toTopOf="@+id/textView22" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -133,7 +135,7 @@
                     android:layout_width="0dp"
                     android:layout_height="200dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:background="@drawable/monthlybackground"
                     app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
                     app:layout_constraintStart_toEndOf="@+id/constraintLayout2"
@@ -144,8 +146,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="6월"
                         android:fontFamily="@font/ilsanregual"
+                        android:text="6월"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -156,9 +158,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="4dp"
-                        android:text="총 공부 시간"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/ilsanregual"
+                        android:text="총 공부 시간"
+                        android:textColor="#212121"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -168,8 +171,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="8dp"
-                        android:text="TextView"
                         android:fontFamily="@font/ilsanregual"
+                        android:text="72:33:20 시간"
                         app:layout_constraintStart_toStartOf="@+id/textView25"
                         app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
@@ -178,9 +181,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:text="실 공부 시간"
+                        android:layout_marginTop="16dp"
                         android:fontFamily="@font/ilsanregual"
+                        android:text="실 공부 시간"
+                        android:textColor="#212121"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
@@ -190,8 +194,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="8dp"
-                        android:text="TextView"
                         android:fontFamily="@font/ilsanregual"
+                        android:text="59:32:10 시간"
                         app:layout_constraintStart_toStartOf="@+id/textView27"
                         app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
@@ -200,9 +204,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="14dp"
-                        android:layout_marginTop="8dp"
-                        android:text="딴짓 횟수"
+                        android:layout_marginTop="16dp"
                         android:fontFamily="@font/ilsanregual"
+                        android:text="졸음 횟수"
+                        android:textColor="#212121"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
@@ -210,12 +215,11 @@
                         android:id="@+id/textView30"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="8dp"
-                        android:text="TextView"
+                        android:layout_marginStart="8dp"
                         android:fontFamily="@font/ilsanregual"
-                        app:layout_constraintStart_toStartOf="@+id/textView29"
-                        app:layout_constraintTop_toBottomOf="@+id/textView29" >
+                        android:text="8번"
+                        app:layout_constraintStart_toEndOf="@+id/textView29"
+                        app:layout_constraintTop_toTopOf="@+id/textView29">
 
                     </TextView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
