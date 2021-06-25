@@ -1,2 +1,2 @@
-yolo + dlib
+yolo
 
