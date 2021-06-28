@@ -30,5 +30,7 @@
  │   ├── Study
  │         ├── Behavior
  │         ├── BehaviorTime
+ │         ├── TotalCount
+ │ 
  └ 
 ```
