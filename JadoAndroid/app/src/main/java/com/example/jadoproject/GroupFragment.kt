@@ -21,8 +21,9 @@ class GroupFragment : Fragment() {
 
         val item : ArrayList<Group> = arrayListOf()
         val groups : Group = Group("Java를 잡아", "1일 1알고리즘 풀기!!")
-
+        val two_groups = Group("C++최고", "객체지향 마스터하기")
         item.add(groups)
+        item.add(two_groups)
         setAdapter(item)
 
         return binding.root
