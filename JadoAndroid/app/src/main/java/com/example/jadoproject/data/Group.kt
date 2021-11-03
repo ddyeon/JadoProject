@@ -8,3 +8,7 @@ data class Group(
     var title : String,
     var goal : String
 )
+
+data class Friend(
+    var id : String
+)

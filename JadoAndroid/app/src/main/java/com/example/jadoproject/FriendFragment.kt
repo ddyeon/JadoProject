@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.jadoproject.data.Friend
+import com.example.jadoproject.data.Group
 import com.example.jadoproject.databinding.FragmentFriendBinding
 import com.google.firebase.database.FirebaseDatabase
 import com.google.gson.Gson
@@ -23,10 +26,29 @@ class FriendFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_friend, container,false)
 
+        val item : ArrayList<Friend> = arrayListOf()
+        val dayeon : Friend = Friend("ddyeon")
+        val yooh : Friend = Friend("yuyu")
+        val suzy : Friend = Friend("suzy")
+
+        item.add(dayeon)
+        item.add(yooh)
+        item.add(suzy)
+
+        setAdapter(item)
+
         binding.btnSearch.setOnClickListener {
 
         }
 
         return binding.root
+    }
+
+
+    private fun setAdapter(items : ArrayList<Friend>)
+    {
+        val adapter = FriendListAdapter(items)
+        binding.freindListRecyclerview.adapter = adapter
+        binding.freindListRecyclerview.layoutManager = LinearLayoutManager(context)
     }
 }

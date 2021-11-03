@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.jadoproject.data.Info
 import com.example.jadoproject.databinding.FragmentMypageBinding
 import com.google.firebase.FirebaseApp
@@ -43,6 +45,12 @@ class MypageFragment : Fragment() {
             val intent = Intent(activity, JoinActivity::class.java)
             intent.putExtra("flag", "modify")
             startActivity(intent)
+        }
+
+        binding.btnFriend.setOnClickListener {
+           val intent = Intent(context, FriendFragment()::class.java)
+            startActivity(intent)
+
         }
 
         firebaseConnet()
