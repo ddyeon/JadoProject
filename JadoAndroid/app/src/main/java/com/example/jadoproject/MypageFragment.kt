@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.jadoproject.data.Info
 import com.example.jadoproject.databinding.FragmentMypageBinding
@@ -48,8 +49,8 @@ class MypageFragment : Fragment() {
         }
 
         binding.btnFriend.setOnClickListener {
-           val intent = Intent(context, FriendFragment()::class.java)
-            startActivity(intent)
+            val action = MypageFragmentDirections.actionMypageToFriendFragment()
+            it.findNavController().navigate(action)
 
         }
 

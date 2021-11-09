@@ -1,18 +1,20 @@
 package com.example.jadoproject
 
-import android.util.Log
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.NavController
+import androidx.navigation.NavHost
+import androidx.navigation.NavHostController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
-import com.example.jadoproject.data.Group
+import com.example.jadoproject.data.Groups
 import com.example.jadoproject.databinding.ItemGroupBinding
 
-class GroupListAdapter(items : ArrayList<Group>) : RecyclerView.Adapter<GroupListAdapter.GroupHolder>() {
+class GroupListAdapter(items: ArrayList<Groups>) : RecyclerView.Adapter<GroupListAdapter.GroupHolder>() {
 
     private var item = items
 
@@ -24,8 +26,7 @@ class GroupListAdapter(items : ArrayList<Group>) : RecyclerView.Adapter<GroupLis
             R.layout.item_group,
             parent,
             false)
-        return GroupHolder(binding, LayoutInflater.from(parent.context).inflate(R.layout.item_group, parent, false)
-        )
+        return GroupHolder(binding, LayoutInflater.from(parent.context).inflate(R.layout.item_group, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -45,15 +46,14 @@ class GroupListAdapter(items : ArrayList<Group>) : RecyclerView.Adapter<GroupLis
         val groupName = itemView.findViewById<TextView>(R.id.group_name)
         val groupGoal = itemView.findViewById<TextView>(R.id.group_goal)
 
-        fun bind(group: Group) {
+        fun bind(group: Groups) {
 
-            groupName.text = group.title
+            groupName.text = group.groupname
             groupGoal.text = group.goal
 
-          /*  groupName.setOnClickListener {
-                Log.d("error", "hi")
+            binding.groupCardView.setOnClickListener {
                 Navigation.findNavController(binding.root).navigate(R.id.action_group_to_groupDetailFragment)
-            }*/
+            }
 
         }
 
