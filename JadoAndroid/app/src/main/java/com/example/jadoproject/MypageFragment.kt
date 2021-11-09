@@ -1,24 +1,24 @@
 package com.example.jadoproject
 
+import android.R
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.jadoproject.data.Info
 import com.example.jadoproject.databinding.FragmentMypageBinding
-import com.google.firebase.FirebaseApp
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+
 
 class MypageFragment : Fragment() {
 
@@ -48,9 +48,8 @@ class MypageFragment : Fragment() {
         }
 
         binding.btnFriend.setOnClickListener {
-           val intent = Intent(context, FriendFragment()::class.java)
-            startActivity(intent)
-
+            val action = MypageFragmentDirections.actionMypageToFriendFragment()
+            it.findNavController().navigate(action)
         }
 
         firebaseConnet()

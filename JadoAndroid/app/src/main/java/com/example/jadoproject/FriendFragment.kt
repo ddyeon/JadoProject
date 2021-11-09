@@ -1,6 +1,7 @@
 package com.example.jadoproject
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +10,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.jadoproject.data.Friend
 import com.example.jadoproject.data.Group
+import com.example.jadoproject.data.Info
 import com.example.jadoproject.databinding.FragmentFriendBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 class FriendFragment : Fragment() {
     private lateinit var binding : FragmentFriendBinding
@@ -26,18 +32,18 @@ class FriendFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_friend, container,false)
 
-        val item : ArrayList<Friend> = arrayListOf()
-        val dayeon : Friend = Friend("ddyeon")
-        val yooh : Friend = Friend("yuyu")
-        val suzy : Friend = Friend("suzy")
+        firebaseConnet()
 
-        item.add(dayeon)
-        item.add(yooh)
-        item.add(suzy)
+        val item : ArrayList<Friend> = arrayListOf()
 
         setAdapter(item)
 
         binding.btnSearch.setOnClickListener {
+            val searchId = binding.edtSearch.text.toString()
+            //if (searchId == )
+        }
+
+        binding.btnAdd.setOnClickListener {
 
         }
 
@@ -50,5 +56,46 @@ class FriendFragment : Fragment() {
         val adapter = FriendListAdapter(items)
         binding.freindListRecyclerview.adapter = adapter
         binding.freindListRecyclerview.layoutManager = LinearLayoutManager(context)
+    }
+
+    fun firebaseConnet(){
+        val myRef = database.getReference("User").child("dayeon").child("UserInfo")
+        val userArray : ArrayList<Any?> = arrayListOf()
+        var infoarray : Info = Info("","","","")
+
+        myRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val friendInfo = dataSnapshot.value
+                Log.d("friendInfo", friendInfo.toString())
+                userArray.add(friendInfo)
+
+                val jsonString = gson.toJson(userArray)
+                val listType = object : TypeToken<ArrayList<Info>>() {}.type
+                val newList = gson.fromJson<ArrayList<Info>>(jsonString, listType)
+
+                Log.d("newlist", newList.toString())
+                infoarray = newList[0]
+                Log.d("email", infoarray.email.toString())
+                getText(infoarray)
+
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("connet", "fail")
+                Log.d("eroor", error.toString())
+
+            }
+
+
+        })
+
+    }
+
+    fun getText(friendInfo : Info)
+    {
+        //binding.profileImg.seText(friendInfo.profileImg)
+        binding.userId.setText(friendInfo.email)
+
     }
 }
