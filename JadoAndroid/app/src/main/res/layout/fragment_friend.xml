@@ -51,10 +51,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            tools:listitem="@layout/item_friendlist"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtSearch">
+            app:layout_constraintTop_toBottomOf="@+id/edtSearch"
+            tools:listitem="@layout/item_friendlist">
 
         </androidx.recyclerview.widget.RecyclerView>
 
