@@ -5,8 +5,18 @@ import com.google.gson.annotations.SerializedName
 import javax.security.auth.Subject
 
 data class Group(
-    var title : String,
-    var goal : String
+   var groups : ArrayList<Group>
+)
+
+data class Groups(
+    var groupname : String = "",
+    var goal : String = "",
+    //var friend : List<Member>
+)
+
+data class Member(
+    var id : String,
+    var image: String
 )
 
 data class Friend(

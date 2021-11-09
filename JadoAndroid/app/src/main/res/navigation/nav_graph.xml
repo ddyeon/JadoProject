@@ -3,26 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/baseFragment">
+    app:startDestination="@id/home">
 
-    <fragment
-        android:id="@+id/baseFragment"
-        android:name="com.example.jadoproject.BaseFragment"
-        android:label="fragment_base"
-        tools:layout="@layout/fragment_base" >
-        <action
-            android:id="@+id/action_baseFragment_to_weeklyFragment"
-            app:destination="@id/week" />
-        <action
-            android:id="@+id/action_baseFragment_to_homeFragment"
-            app:destination="@id/home" />
-        <action
-            android:id="@+id/action_baseFragment_to_mypageFragment"
-            app:destination="@id/mypage" />
-        <action
-            android:id="@+id/action_baseFragment_to_groupFragment"
-            app:destination="@id/group" />
-    </fragment>
     <fragment
         android:id="@+id/week"
         android:name="com.example.jadoproject.WeeklyFragment"
@@ -71,6 +53,9 @@
         <action
             android:id="@+id/action_group_to_groupDetailFragment"
             app:destination="@id/groupDetailFragment" />
+        <action
+            android:id="@+id/action_group_to_groupplusFragment"
+            app:destination="@id/groupplusFragment" />
     </fragment>
     <fragment
         android:id="@+id/groupDetailFragment"
@@ -81,4 +66,13 @@
         android:id="@+id/friendFragment"
         android:name="com.example.jadoproject.FriendFragment"
         android:label="FriendFragment" />
+    <fragment
+        android:id="@+id/groupplusFragment"
+        android:name="com.example.jadoproject.GroupplusFragment"
+        android:label="fragment_group_plus"
+        tools:layout="@layout/fragment_group_plus" />
+    <action android:id="@+id/action_global_group" app:destination="@id/group" />
+    <action android:id="@+id/action_global_home" app:destination="@id/home" />
+    <action android:id="@+id/action_global_week" app:destination="@id/week" />
+    <action android:id="@+id/action_global_mypage" app:destination="@id/mypage" />
 </navigation>

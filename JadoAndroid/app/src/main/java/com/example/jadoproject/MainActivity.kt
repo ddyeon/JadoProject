@@ -11,72 +11,40 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 
 import com.example.jadoproject.databinding.ActivityMainBinding
+import timber.log.Timber
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val homeFragment = HomeFragment()
-    private val weeklyFragment = WeeklyFragment()
-    private val groupFragment = GroupFragment()
-    private val mypageFragment = MypageFragment()
-
-
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         binding.bottomNavigationView.itemIconTintList = null
 
-
-
-
-        bottomnavi()
-
+        Timber.plant(Timber.DebugTree())
+        setupBottomNavMenu()
     }
 
+    private fun setupBottomNavMenu() {
+        val bottomNav = binding.bottomNavigationView
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
 
-
-
-
-
-
-    fun bottomnavi()
-    {
-        binding.bottomNavigationView.run {
-            setOnNavigationItemSelectedListener {
-                when(it.itemId) {
-                    R.id.home -> {
-                        changeFragment(homeFragment)
-                    }
-                    R.id.week -> {
-                        changeFragment(weeklyFragment)
-                    }
-                    R.id.group -> {
-                        changeFragment(groupFragment)
-                    }
-                    R.id.mypage -> {
-                        changeFragment(mypageFragment)
-                    }
-                }
-                true
-            }
-            selectedItemId = R.id.home
+        val navController = navHostFragment.navController
+        bottomNav.setupWithNavController(navController)
+        bottomNav.setOnNavigationItemReselectedListener {
+            null
         }
     }
-
-    private fun changeFragment(fragment: Fragment) {
-        val manager: FragmentManager = supportFragmentManager
-        val ft: FragmentTransaction = manager.beginTransaction()
-        ft.replace(R.id.fragmentContainerView2, fragment).commit()
-    }
-
-
-
 
 }
