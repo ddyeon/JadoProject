@@ -4,8 +4,23 @@ import android.graphics.Paint
 import com.google.gson.annotations.SerializedName
 import javax.security.auth.Subject
 
-data class Group(
+data class GroupList(
    var groups : ArrayList<Group>
+)
+
+data class Group(
+    var title: GName
+)
+
+data class GName(
+    var friend : ArrayList<Members>,
+    var goal : String,
+    var groupname : String
+)
+
+data class Members(
+    var id : String,
+    var image : String
 )
 
 data class Groups(
@@ -14,10 +29,6 @@ data class Groups(
     //var friend : List<Member>
 )
 
-data class Member(
-    var id : String,
-    var image: String
-)
 
 data class Friend(
     var id : String

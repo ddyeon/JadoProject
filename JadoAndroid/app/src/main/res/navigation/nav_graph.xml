@@ -54,8 +54,8 @@
             android:id="@+id/action_group_to_groupDetailFragment"
             app:destination="@id/groupDetailFragment" />
         <action
-            android:id="@+id/action_group_to_groupplusFragment"
-            app:destination="@id/groupplusFragment" />
+            android:id="@+id/action_group_to_groupPlusFragment"
+            app:destination="@id/groupPlusFragment" />
     </fragment>
     <fragment
         android:id="@+id/groupDetailFragment"
@@ -70,9 +70,8 @@
     <action android:id="@+id/action_global_home" app:destination="@id/home" />
     <action android:id="@+id/action_global_week" app:destination="@id/week" />
     <action android:id="@+id/action_global_mypage" app:destination="@id/mypage" />
-    <fragment
-        android:id="@+id/groupplusFragment"
-        android:name="com.example.jadoproject.GroupplusFragment"
-        android:label="fragment_group_plus"
-        tools:layout="@layout/fragment_group_plus" />
+    <activity
+        android:id="@+id/groupPlusFragment"
+        android:name="GroupPlusFragment"
+        android:label="GroupPlusFragment" />
 </navigation>

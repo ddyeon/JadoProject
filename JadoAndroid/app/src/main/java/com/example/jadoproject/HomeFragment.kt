@@ -140,7 +140,7 @@ class HomeFragment : Fragment() {
 
                 val t_time = times[0].total_time.split(":")
                 val b_time = times[0].behavior_time.split(":")
-
+                Log.d("ttime", t_time.toString())
                 val t_hour = t_time[0]
                 val b_hour = b_time[0]
 

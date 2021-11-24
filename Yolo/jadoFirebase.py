@@ -1,3 +1,4 @@
+# coding=utf-8
 # import the necessary packages
 import datetime
 from scipy.spatial import distance as dist
@@ -144,8 +145,8 @@ if cameraCheck == 'true':
     # video stream thread 시작
     print("[INFO] starting video stream thread...")
     fileStream = True
-    VideoSignal = VideoStream(usePiCamera=True).start()
-    # VideoSignal = cv2.VideoCapture(0)
+    #VideoSignal = VideoStream(usePiCamera=True).start()
+     VideoSignal = cv2.VideoCapture('movie.mov')
     time.sleep(1.0)
 
 
@@ -157,7 +158,7 @@ if cameraCheck == 'true':
         h, w, c = frame.shape
 
         # YOLO 입력
-        blob = cv2.dnn.blobFromImage(frame, 0.00392, (416, 416), (0, 0, 0),
+        blob = cv2.dnn.blobFromImage(frame, 0.00392, (320, 320), (0, 0, 0),
         True, crop=False)
         YOLO_net.setInput(blob)
         outs = YOLO_net.forward(output_layers)
