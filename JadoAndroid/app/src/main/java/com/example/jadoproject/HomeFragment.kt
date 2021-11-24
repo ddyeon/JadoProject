@@ -68,7 +68,7 @@ class HomeFragment : Fragment() {
 
         var listItem: ArrayList<String> = arrayListOf()
         listItem.add("자두 완성 시키기");
-        listItem.add("잠 자기");
+        listItem.add("발표 준비하기");
         adapter.setItems(listItem)
 
         binding.saveButton.setOnClickListener(View.OnClickListener {
@@ -121,7 +121,7 @@ class HomeFragment : Fragment() {
 
     fun getData()
     {
-        val studyRef = database.getReference("User").child("hyunji").child("Study").child("2021-06-23")
+        val studyRef = database.getReference("User").child("dayeon").child("Study").child("2021-11-23")
 
         val studyArray : ArrayList<Any?> = arrayListOf()
         var times : ArrayList<StudyDate> = arrayListOf()

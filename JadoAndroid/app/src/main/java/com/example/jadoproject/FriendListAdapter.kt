@@ -1,15 +1,17 @@
 package com.example.jadoproject
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jadoproject.data.Friend
+import com.example.jadoproject.data.Info
 import com.example.jadoproject.databinding.ItemFriendlistBinding
 import com.example.jadoproject.databinding.ItemGroupBinding
 
-class FriendListAdapter(items : ArrayList<Friend>) : RecyclerView.Adapter<FriendListAdapter.FriendViewHolder>() {
+class FriendListAdapter(items : ArrayList<Info>) : RecyclerView.Adapter<FriendListAdapter.FriendViewHolder>() {
 
     private var item = items
 
@@ -40,8 +42,9 @@ class FriendListAdapter(items : ArrayList<Friend>) : RecyclerView.Adapter<Friend
     class FriendViewHolder(private val binding: ItemFriendlistBinding, itemview: View) : RecyclerView.ViewHolder(itemview) {
 
 
-        fun bind(friend: Friend) {
-            binding.name.text = friend.id
+        fun bind(friend: Info) {
+            Log.d("info",friend.email)
+            binding.name.text = friend.email
         }
 
 

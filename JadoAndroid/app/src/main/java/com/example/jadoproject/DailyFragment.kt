@@ -56,9 +56,9 @@ class DailyFragment : Fragment() {
         //그냥 일간
         if(arguments?.getString("flags") == "first")
         {
-            binding.dailydate.text = CalendarDay.today().toString() //오늘날짜
+            binding.dailydate.text = "2021-11-24" //오늘날짜
             todayConnet()
-            drawChar(30f,30f,30f)
+            drawChar(20f,30f,50f)
         }
         //month에서 클릭해서 이동했을때
         else
@@ -76,7 +76,7 @@ class DailyFragment : Fragment() {
 
     fun todayConnet()
     {
-        val studyRef = database.getReference("User").child("hyunji").child("Study").child("2021-06-23")
+        val studyRef = database.getReference("User").child("dayeon").child("Study").child("2021-11-23")
 
         val studyArray : ArrayList<Any?> = arrayListOf()
         var times : ArrayList<StudyDate> = arrayListOf()
@@ -148,9 +148,9 @@ class DailyFragment : Fragment() {
         binding.piechart.setUsePercentValues(true)
 
         val pieList : ArrayList<PieEntry> = arrayListOf()
-        pieList.add(PieEntry(math,"Math", 0))
-        pieList.add(PieEntry(korean,"Korean", 0))
-        pieList.add(PieEntry(english,"English", 0))
+        pieList.add(PieEntry(math,"Math", 20))
+        pieList.add(PieEntry(korean,"Korean", 50))
+        pieList.add(PieEntry(english,"English", 30))
 
         val dataSet : PieDataSet = PieDataSet(pieList,"")
         val data = PieData(dataSet)
