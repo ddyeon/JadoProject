@@ -46,7 +46,7 @@ class GroupFragment : Fragment() {
     private fun setLister()
     {
         binding.addGroupBtn.setOnClickListener {
-            val action = GroupFragmentDirections.actionGroupToGroupDetailFragment()
+            val action = GroupFragmentDirections.actionGroupToGroupplusFragment()
             it.findNavController().navigate(action)
 
         }

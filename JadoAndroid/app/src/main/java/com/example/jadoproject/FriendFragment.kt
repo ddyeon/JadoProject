@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.jadoproject.data.Friend
+
 import com.example.jadoproject.data.Group
 import com.example.jadoproject.data.Info
 import com.example.jadoproject.databinding.FragmentFriendBinding
@@ -20,6 +20,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class FriendFragment : Fragment() {
+<<<<<<< HEAD
     private lateinit var binding : FragmentFriendBinding
     private val gson by lazy { Gson() }
     val FIREBASE_URL = "https://jadoproject-530a4-default-rtdb.asia-southeast1.firebasedatabase.app"
@@ -98,4 +99,7 @@ class FriendFragment : Fragment() {
         binding.userId.setText(friendInfo.email)
 
     }
+=======
+
+>>>>>>> main
 }

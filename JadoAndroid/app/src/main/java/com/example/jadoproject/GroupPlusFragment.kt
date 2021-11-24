@@ -1,24 +1,49 @@
-package com.example.jadoproject
-
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
+import com.example.jadoproject.FriendFragment
+import com.example.jadoproject.HomeFragment
+import com.example.jadoproject.JoinActivity
+import com.example.jadoproject.R
+import com.example.jadoproject.data.GName
+import com.example.jadoproject.data.Group
+import com.example.jadoproject.data.Members
+import com.example.jadoproject.databinding.ActivityJoinBinding
+import com.example.jadoproject.databinding.FragmentGroupPlusBinding
+import com.google.firebase.database.FirebaseDatabase
 import com.google.gson.Gson
 
-class GroupplusFragment : Fragment() {
+class GroupPlusFragment: AppCompatActivity() {
+    private lateinit var binding: FragmentGroupPlusBinding
+    private val friend= FriendFragment()
+    private val gson by lazy { Gson() }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    // firebase 연동
+    val FIREBASE_URL = "https://jadoproject-530a4-default-rtdb.asia-southeast1.firebasedatabase.app"
+    private val database: FirebaseDatabase = FirebaseDatabase.getInstance(FIREBASE_URL)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        binding = DataBindingUtil.setContentView(this, R.layout.fragment_group_plus)
 
 
+        binding.plus.setOnClickListener {
+            val Group : Group = Group(GName(
+                arrayListOf() ,binding.gGoalInput.text.toString(), binding.gNameInput.text.toString()))
 
 
-        return super.onCreateView(inflater, container, savedInstanceState)
+            onBackPressed()
+        }
+
+        binding.gPlusBtn.setOnClickListener {
+
+            // 가입 창으로 이동
+            val intent = Intent(this, FriendFragment::class.java)
+            startActivity(intent)
+        }
     }
+
+
 }

@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ilsanregual"
-            android:text="아이디 \n(이메일)"
+            android:text="아이디"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/txtJoinId"
             app:layout_constraintStart_toStartOf="@+id/textView8"

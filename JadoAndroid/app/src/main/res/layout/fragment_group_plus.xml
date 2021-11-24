@@ -60,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="13dp"
                 android:hint="그룹 이름을 입력하세요"
+                android:inputType="textShortMessage"
                 android:layout_gravity="center"
                 android:fontFamily="@font/ilsanregual"/>
         </LinearLayout>
@@ -110,6 +111,7 @@
             tools:layout_editor_absoluteX="0dp">
 
             <Button
+                android:id="@+id/g_plus_btn"
                 android:layout_width="354dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="13dp"

@@ -9,6 +9,7 @@ import com.example.jadoproject.data.Friend
 import com.example.jadoproject.databinding.ItemFriendlistBinding
 import com.example.jadoproject.databinding.ItemGroupBinding
 
+//friend adapter
 class FriendListAdapter(items : ArrayList<Friend>) : RecyclerView.Adapter<FriendListAdapter.FriendViewHolder>() {
 
     private var item = items
